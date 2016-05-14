@@ -18,6 +18,46 @@ export default (app, express, passport) => {
   app.post('/signup', userController.saveOne);
   app.post('/login', userController.verifyLogin);
 
+  app.get('/signup', (req, res) => {
+    console.log('req.body==========> ', req.body);
+    res.send({ status: 'SUCCESSFULLY-SIGNED-UP' });
+  });
+
+  app.post('/signup', passport.authenticate('local-signup', {
+    successRedirect: '/#/dashboard',
+    failureRedirect: '/#/',
+  }));
+
+  app.get('/login', (req, res) => {
+    console.log('req.body==========> ', req.body);
+    res.send({ status: 'SUCCESSFULLY-LOGGED-IN' });
+  });
+
+  app.post('/login', passport.authenticate('local-login', {
+    successRedirect: '/#/dashboard',
+    failureRedirect: '/#/',
+  }));
+
+  app.get('/logout', (req, res) => {
+    req.session.destroy((err) => {
+      console.log('User has been logged out successfully.', err);
+      res.redirect('/#/');
+    });
+  });
+
+  // CHECK IF LOGGED IN
+  const isLoggedIn = (req, res, next) => {
+    if (req.isAuthenticated()) {
+      return next();
+    }
+    // REDIRECT
+    return res.redirect('/#/');
+  };
+
+  app.get('/profile', isLoggedIn, (req, res) => {
+    res.send({ status: 'AUTHENTICATED' });
+  });
+
 // MOODS
 // =================================
   app.post('/api/moods', moodController.saveUserMood);
