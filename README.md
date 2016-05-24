@@ -246,4 +246,4 @@ Database in `MySQL`, using `Sequelize`.
 
 ## Deployment
 
-Deployed using `__Digital Ocean__`. Installed a MySQL Database. Live at [__moodly.io__](http://moodly.io)!
+Deployed using `Digital Ocean`. Installed a MySQL Database. Live at [__moodly.io__](http://moodly.io)!
