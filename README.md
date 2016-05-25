@@ -6,6 +6,13 @@
 
 #### [![Build Status](https://travis-ci.org/CodeRISHI/mood.ly.svg?branch=master)](https://travis-ci.org/CodeRISHI/mood.ly)
 
+## Screenshots
+
+  ![Landing Page](http://i.imgur.com/eHSYJ7j.png)
+  ![Login/Signup](http://i.imgur.com/5N0S5lv.png)
+  ![Dashboard](http://i.imgur.com/ms5iYUo.png)
+  ![Profile](http://i.imgur.com/cUMVo78.png)
+
 ## Meet the Engineers
 
   - __Product Owner__
